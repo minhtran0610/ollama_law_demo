@@ -1,0 +1,19 @@
+[project]
+name = "ollama-law-demo"
+version = "0.1.0"
+description = "Live demo: Ollama context-window budgets (32K/128K/256K) tested on real Finnish immigration and company law text"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "beautifulsoup4>=4.15.0",
+    "pymupdf>=1.28.2",
+    "requests>=2.34.2",
+    "rich>=15.0.0",
+]
+
+[project.scripts]
+ollama-law-demo = "ollama_law_demo:main"
+
+[build-system]
+requires = ["uv_build>=0.12.5,<0.13.0"]
+build-backend = "uv_build"

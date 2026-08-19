@@ -1,0 +1,142 @@
+COMPANIES ACT (OSAKEYHTIÖLAKI 624/2006) — CHAPTER 6 AMENDMENTS SUPPLEMENT
+Covers amendments after 660/2022, for use alongside the English translation
+current only to 660/2022.
+
+Scope: Chapter 6 (yhtiön johto — company management) only. Compiled from
+Finlex/Edilex changelog entries and secondary sources; NOT a substitute for
+the primary statutory text. Confidence labels (CONFIRMED / INFERRED /
+NOT CONFIRMED) indicate how directly each item was verified — see notes
+under each entry.
+
+-----------------------------------------------------------------------------
+1. ACT 1252/2023 (HE 20/2023 vp)
+   Given: 21.12.2023 | Published: 29.12.2023 | In force: 31.12.2023
+-----------------------------------------------------------------------------
+STATUS: CONFIRMED (via secondary source, not primary text)
+
+Added Chapter 6, Sections 16a–16f (block of new provisions). Implements the
+EU Corporate Sustainability Reporting Directive (CSRD) in Finland, alongside
+parallel amendments to the Accounting Act (kirjanpitolaki) and Auditing Act
+(tilintarkastuslaki).
+
+Section 16a: Makes the board of directors (hallitus) collectively
+responsible for (i) financial reporting and audit, (ii) sustainability
+reporting as required under the Accounting Act, and (iii) sustainability
+assurance as required under the Auditing Act.
+
+Sections 16b–16e: Not independently verified in this research pass —
+presumed to contain related CSRD implementation detail (e.g. governance
+body responsibilities, disclosure mechanics). Flagged for future
+verification.
+
+Section 16f ("Poikkeukset kestävyysraportointia koskevista velvollisuuksista"
+— Exceptions to the obligations concerning sustainability reporting):
+heading confirmed via Edilex; substantive content not independently
+verified, but per the graduated CSRD rollout in effect at the time, likely
+contained phase-in/exception rules keyed to company size and listing status
+(e.g. public-interest entities >500 employees from FY2024, other large
+companies from FY2025, smaller listed companies from FY2026). This
+provision was repealed by 558/2026 (see below) once that graduated,
+listing-sensitive structure was replaced by a flat threshold — INFERRED,
+not textually confirmed.
+
+Sources: Excellence Finland, "Hyvä hallinto ja vastuullisuus"
+(www.excellencefinland.fi/hyva-hallinto-ja-vastuullisuus/); Edilex
+Osakeyhtiölaki reference card (www.edilex.fi/lainsaadanto/20060624).
+
+-----------------------------------------------------------------------------
+2. ACT 652/2024 (HE 60/2024 vp — "laeiksi osakeyhtiölain 6 luvun ja
+   kauppakamarilain 2 §:n muuttamisesta")
+   Given: 22.11.2024 | Published: 26.11.2024 | In force: 28.12.2024
+-----------------------------------------------------------------------------
+STATUS: CONFIRMED
+
+Added Chapter 6, Section 9a (plus an annex/liite). Implements an EU
+board-gender-balance requirement for listed companies (pörssiyhtiöt).
+
+Applicability note: NOT related to EEA residency requirements. Does NOT
+apply to non-listed companies — a private, non-listed Oy (however owned)
+falls outside this section's scope regardless of founder composition.
+
+Source: Edilex Osakeyhtiölaki changelog (www.edilex.fi/smur/20060624).
+
+-----------------------------------------------------------------------------
+3. ACT 558/2026 (HE 38/2026 vp — "laeiksi kirjanpitolain ja tilintarkastuslain
+   1 luvun 1 §:n ja 3 luvun 5 a §:n muuttamisesta"; osakeyhtiölaki portion
+   published separately as "Laki osakeyhtiölain muuttamisesta")
+   Given: 16.6.2026 | Published: 23.6.2026 | In force: 30.6.2026
+-----------------------------------------------------------------------------
+STATUS: CONFIRMED (context and substance) / INFERRED (exact 16a wording)
+
+Note on sourcing: HE 38/2026's title names only the Accounting Act and
+Auditing Act. The Companies Act, Cooperatives Act (osuuskuntalaki), and
+Securities Markets Act (arvopaperimarkkinalaki) were amended as
+consequential provisions under the same bill, to keep implementation of
+the underlying EU directive coherent across all four acts. This is why an
+act titled "Laki osakeyhtiölain muuttamisesta" cites HE 38/2026 as its
+legislative basis despite the bill's title never mentioning osakeyhtiölaki.
+
+Implements EU Directive (EU) 2026/470 (the "Omnibus I" sustainability-
+reporting amending directive). Parliament approved the bill as amended on
+3.6.2026; presidential confirmation 16.6.2026.
+
+Chapter 6 changes:
+  - Section 16f: REPEALED (kumottu).
+  - Section 16a: AMENDED (muutettu). Exact before/after wording not
+    independently verified — see note under 1252/2023 above. Most likely
+    effect: updates the cross-reference so the board's collective
+    responsibility for sustainability reporting tracks the Accounting
+    Act's new, narrower definition of a "kestävyysraportointiyritys"
+    (sustainability-reporting company), rather than changing WHO bears
+    the responsibility. INFERRED, not confirmed against statutory text.
+
+Substantive reform (Accounting Act, for context — not itself Chapter 6,
+but explains why 16a/16f changed):
+  - Mandatory sustainability reporting is now limited to companies/parent
+    companies averaging (over the last two completed financial years)
+    >1,000 employees AND >€450 million turnover.
+  - Stock-exchange listing no longer triggers the obligation on its own.
+  - The balance-sheet-total threshold is dropped from the criteria.
+  - Result: the population of reporting-obligated Finnish companies is
+    expected to fall to roughly one-tenth of the prior figure; many
+    listed companies that began CSRD reporting in the FY2024 first wave
+    fall out of scope.
+  - Generally applies to financial years starting 1.7.2026 or later, with
+    optional early application for FYs starting on/after 1.1.2026.
+    Companies dropping below the new thresholds may still opt in
+    voluntarily by board decision.
+
+Applicability note: Confirms none of this reaches a private, non-listed,
+sole-founder Oy — the sustainability-reporting thresholds (under either
+the pre-2026 graduated version or the current flat threshold) only ever
+applied to much larger or listed entities.
+
+Sources: Hannes Snellman legal alert, "Kestävyysraportoinnin muutokset
+voimaan Suomessa 30.6.2026" (23.6.2026), www.hannessnellman.com/news-and-
+views/blog/legal-alert-kestavyysraportoinnin-muutokset-voimaan-suomessa-
+30-6-2026/; Edilex Osakeyhtiölaki changelog (www.edilex.fi/smur/20060624);
+Finlex government proposal listing, HE 38/2026
+(www.finlex.fi/en/government-proposals/2026/38).
+
+-----------------------------------------------------------------------------
+OTHER AMENDMENTS NOTED IN THE EDILEX CHANGELOG (NOT CHAPTER 6 — listed for
+completeness of the changelog trail; substance not researched)
+-----------------------------------------------------------------------------
+- 575/2023 (HE 244/2022 vp), in force 31.3.2023 — chapter(s) affected not
+  determined in this research pass.
+- 561/2025 (HE 13/2025 vp), in force 1.1.2026 — amends Chapter 5 Section 17,
+  Chapter 7 Section 7, and Chapter 18 Section 11 (per Edilex huomautus).
+  Not Chapter 6; not detailed here.
+
+-----------------------------------------------------------------------------
+OPEN ITEMS FOR FUTURE VERIFICATION
+-----------------------------------------------------------------------------
+- Literal statutory text (old vs. new) of 6:16a as amended by 558/2026, and
+  full former text of repealed 6:16f. Best next source: Talousvaliokunta
+  (Finance Committee) report (TaVM) on HE 38/2026 vp, via eduskunta.fi
+  (site blocks automated fetch — requires a browser) — should contain a
+  section-by-section old/new comparison.
+- Content of 1252/2023's Sections 16b–16e (not verified here).
+- Substance of 575/2023 as it relates (if at all) to Chapter 6.
+
+Compiled: 18 August 2026.
