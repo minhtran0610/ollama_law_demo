@@ -100,9 +100,10 @@ uv run ollama-law-demo 2 128k
 ```
 
 Useful flags on both commands: `--dry-run` (show the token budget without
-calling the model), `--num-predict N` (generation budget; question 2 tends to
-need less than question 1), `--hide-thinking` (skip streaming the model's
-reasoning, answer only).
+calling the model), `--model {9b,4b,2b,0.8b}` (switch model size, default
+`9b`; all pulled locally -- 9b/4b/2b at q4_K_M, 0.8b at q8_0), `--num-predict N`
+(generation budget; question 2 tends to need less than question 1),
+`--hide-thinking` (skip streaming the model's reasoning, answer only).
 
 ### 3. Interactive: hand it to the audience (128K per act, 256K combined)
 

@@ -6,6 +6,7 @@ Usage:
   python context_demo.py 2 32k          # entrepreneur/company-formation question, should overflow
   python context_demo.py 2 128k         # same question, should fit cleanly
   python context_demo.py 2 128k --dry-run   # just show corpus stats, don't call the model
+  python context_demo.py 2 128k --model 4b  # same question, smaller model (choices: 9b/4b/2b/0.8b)
 
 Ollama's real behavior (verified empirically against this machine's qwen3.5:9b-q4_K_M):
   - If the prompt fits inside num_ctx: it's processed in full, no loss.
@@ -24,7 +25,12 @@ from rich.markdown import Markdown
 from rich.rule import Rule
 
 LAW_TEXTS = str(Path(__file__).resolve().parent.parent / "law_texts")
-MODEL = "qwen3.5:9b-q4_K_M"
+MODELS = {
+    "9b": "qwen3.5:9b-q4_K_M",
+    "4b": "qwen3.5:4b-q4_K_M",
+    "2b": "qwen3.5:2b-q4_K_M",
+    "0.8b": "qwen3.5:0.8b-q8_0",
+}
 OLLAMA_URL = "http://localhost:11434/api/chat"
 
 CTX_SIZES = {"32k": 32768, "128k": 131072}
@@ -173,15 +179,16 @@ def format_corpus(docs):
     return "\n\n".join(parts)
 
 
-def run(question, ctx_key, num_predict, show_thinking, dry_run, temperature):
+def run(question, ctx_key, model_key, num_predict, show_thinking, dry_run, temperature):
     num_ctx = CTX_SIZES[ctx_key]
+    model = MODELS[model_key]
     docs = build_corpus(question)
     corpus_text = format_corpus(docs)
     est_tokens = sum(t for _, _, t in docs)
 
     console = Console()
     console.print(f"[bold]=== Question {question} @ {ctx_key} (num_ctx={num_ctx}) ===[/bold]")
-    console.print(f"Model: {MODEL}")
+    console.print(f"Model: {model}")
     for label, text, est in docs:
         console.print(f"  - {label}: {nbytes(text):>8,} bytes  (~{est:>7,.0f} est. tokens)")
     console.print(f"Corpus estimate: ~{est_tokens:,.0f} tokens vs budget {num_ctx:,}")
@@ -205,7 +212,7 @@ def run(question, ctx_key, num_predict, show_thinking, dry_run, temperature):
     if temperature is not None:
         options["temperature"] = temperature
     payload = {
-        "model": MODEL,
+        "model": model,
         "messages": messages,
         "stream": True,
         "think": show_thinking,
@@ -273,6 +280,8 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("question", type=int, choices=[1, 2])
     ap.add_argument("ctx", choices=list(CTX_SIZES))
+    ap.add_argument("--model", choices=list(MODELS), default="9b",
+                     help="model size to run against (default: 9b)")
     ap.add_argument("--num-predict", type=int, default=12000,
                      help="max tokens to generate (thinking + answer combined); Q1 needs 12k+ to reach a final answer")
     ap.add_argument("--hide-thinking", action="store_true")
@@ -282,7 +291,7 @@ def main():
                           "(0.2 was tried and caused repetition loops -- not recommended)")
     args = ap.parse_args()
 
-    run(args.question, args.ctx, args.num_predict, not args.hide_thinking, args.dry_run, args.temperature)
+    run(args.question, args.ctx, args.model, args.num_predict, not args.hide_thinking, args.dry_run, args.temperature)
 
 
 if __name__ == "__main__":
