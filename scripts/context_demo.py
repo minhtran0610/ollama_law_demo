@@ -142,15 +142,18 @@ QUESTIONS = {
         "type qualifies."
     ),
     2: (
-        "I'm a non-EU citizen and want to set up my own one-person limited liability "
-        "company (Oy) in Finland as a tech consultant, use it to get a residence permit "
-        "as an entrepreneur, and eventually qualify for a permanent residence permit. "
-        "Walk me through: (1) what I need to satisfy to get the residence permit for an "
-        "entrepreneur, (2) any company-law requirement or obstacle specific to being a "
-        "non-EU/non-EEA founder setting this up alone, (3) the minimum share capital I "
-        "need, (4) whether any recent company-law amendments in the material affect my "
-        "situation, and (5) once I hold the entrepreneur residence permit, what the actual "
-        "path and requirements are to eventually get a permanent residence permit."
+        "I'm a non-EU citizen currently living in Finland on a student residence permit. "
+        "I want to set up my own one-person limited liability company (Oy) as a tech "
+        "consultant, switch my residence status to a residence permit for an entrepreneur, "
+        "and eventually qualify for a permanent residence permit. Walk me through: (1) what "
+        "I need to satisfy to get the residence permit for an entrepreneur, and whether "
+        "switching from my current student permit requires me to leave Finland and reapply "
+        "from abroad, or can be done from inside the country, (2) any company-law "
+        "requirement or obstacle specific to being a non-EU/non-EEA founder setting this up "
+        "alone, (3) the minimum share capital I need, (4) whether any recent company-law "
+        "amendments in the material affect my situation, and (5) once I hold the "
+        "entrepreneur residence permit, what the actual path and requirements are to "
+        "eventually get a permanent residence permit."
     ),
 }
 

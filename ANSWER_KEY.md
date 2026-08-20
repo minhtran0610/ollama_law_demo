@@ -102,6 +102,52 @@ truncation if it comes up; it can happen at 128K too.
 - Financial resources during the early stage can come from gainful employment, initial
   company funding, or the applicant's own funds (§79a).
 
+**New trap 1 — ordinary entrepreneur (§79) vs. startup entrepreneur (§80)**: the
+question says "tech consultant," which invites the model to reach for the *startup*
+entrepreneur permit (§80/§80a) since "tech" reads as innovative. That route requires a
+favourable statement from the Innovation Funding Agency **Business Finland**, which
+assesses whether the business model shows potential for *rapid international growth*
+— confirmed against Business Finland's and Migri's own public guidance, not just this
+corpus. A one-person consultancy trading hours for money doesn't inherently clear that
+bar; it's the ordinary §79 ELY-Centre route (profitable business + sufficient
+resources + taxes not neglected), not §80. A correct answer either states this
+distinction explicitly or at minimum answers under §79 without conflating it with the
+Business Finland/startup route. Citing §80 as if it were the applicable path, or
+blending its requirements (Business Finland statement, rapid-growth business model)
+into a §79 answer, is the failure mode to watch for.
+
+**Confirmed in testing (128K, `prompt_eval_count=74,954`, no truncation, revised
+student-permit question wording):** the model answered entirely under §79/§79a and
+never mentioned §80, "startup entrepreneur," or Business Finland — it did not fall
+into the trap this run. Worth a few more runs before the demo to see how often it
+holds, since sampling variance is a known factor for this model (see Question 1's
+notes on the degree-based fact flipping ~1 in 3 runs).
+
+**New trap 2 — does switching from a student permit require leaving Finland? (§54,
+§60)**: §60 subsection 1 requires a **first** residence permit to be applied for from
+abroad, before entering Finland — entrepreneur/startup-entrepreneur permits are not on
+the short list of exceptions that may be filed from inside the country. But §54
+("Issue of extended permits") allows "a new fixed-term residence permit ... on new
+grounds if such grounds would qualify the alien for the first residence permit" — i.e.
+someone who already holds a permit (here, the student permit) can pivot their purpose
+of stay to entrepreneurship as an **extended permit**, and §60 subsection 2 says
+extended permits "shall be applied for in Finland." **Correct answer: since the
+applicant already holds a Finnish residence permit, they do not need to leave the
+country — they apply for the switch from inside Finland, provided the §79/§79a
+entrepreneur requirements are otherwise met.** The tempting wrong answer — "you must
+leave and reapply from a Finnish mission abroad, like a brand-new applicant" — is a
+belief plausible enough that it's worth calling out by name if the model produces it.
+
+**Confirmed in testing (128K, `prompt_eval_count=74,954`, no truncation, revised
+student-permit question wording):** the model failed this trap. It found §60(1)
+(first permit → apply abroad) and even quoted §60(2) ("extended permit... shall be
+applied for in Finland") in its own thinking, but never located or cited §54's "new
+grounds" clause, the piece that actually resolves the question. It landed on "you
+would likely need to leave Finland and apply abroad," hedged as an "important
+ambiguity," rather than correctly concluding the switch can be filed in Finland. Good
+one to watch for live — the model had all the raw material (§54 and §60 are both in
+Chapter 4, well within the 128K budget) but didn't connect them.
+
 **2. EEA-residency catch-22 for a solo founder (LLC Act §10, §19)**
 - At least one board member must be EEA-resident, unless the registration authority
   (Patent and Registration Office / PRH) grants an exemption.
@@ -149,3 +195,22 @@ truncation if it comes up; it can happen at 128K too.
   *"continuous entrepreneur residence permit (Letter A in Chapter 34)"* — neither
   matches anything in this corpus (Ch.1/4/5 only go into the 80s for section
   numbers; there is no "Chapter 34").
+- **Regression seen in a later run (128K, `prompt_eval_count=74,954`, no truncation,
+  revised student-permit question wording)** — a clean example of the same
+  sampling-variance problem Question 1 has, just showing up here instead: the model
+  collapsed the amendment's five paths into one blanket rule ("six years, B1 language,
+  two years' work history") and:
+  - Never mentioned the **A2-or-15-credits** language level that applies specifically
+    to the higher-ed-in-Finland route (line 199 of `aliens_act_amendments.txt`) —
+    presented B1 as if it were the only language bar, when B1 only governs the
+    6-year standard route.
+  - **Completely omitted the €40,000-income path** (4 years, no stated language or
+    work-history requirement) — the exact same fact Question 1's answer key already
+    flags as a known trap the model sometimes misses. "40,000" / "€40" does not
+    appear anywhere in this run's answer.
+  - This is not a corpus or truncation issue — `prompt_eval_count` shows nothing was
+    dropped. It's the model treating the amendment as one unified rule instead of
+    five distinct paths, same failure class as Question 1's degree-fact flip. Worth
+    rerunning a couple of times before the demo; if it recurs, it's a good live
+    teaching moment about the model under-using a big context window it *did*
+    receive in full, rather than a truncation story.
