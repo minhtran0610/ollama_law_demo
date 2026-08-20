@@ -10,11 +10,30 @@ Everything runs locally through [Ollama](https://ollama.com), on real,
 unmodified Finnish statute translations (Aliens Act, Limited Liability
 Companies Act) plus their 2023–2026 amendment supplements.
 
-## The headline finding
+## What each context size actually buys you
 
-It's common to assume that if a prompt is bigger than a model's context
-window, you just lose "the overflow" — the tail end gets cut, everything else
-survives. That's not what happens in practice.
+The two thresholds this demo uses aren't arbitrary — they're the two
+capability tiers that matter most on a single consumer GPU:
+
+- **32K is already enough for a lot of real work.** Segment 1 below is one
+  chapter of Finnish statute, but the same budget just as easily holds your
+  own daily to-do list, a handful of research papers, or a day's worth of
+  tech and investment news. A daily pipeline that reads that much and leaves
+  you a bit smarter every morning is realistic today, on a 9B model, on your
+  own hardware.
+- **128K is where the model starts reasoning *across* sources instead of
+  just reading one.** Segment 2 needs the model to connect two separate acts
+  of law — an entrepreneur permit and a company-formation statute — into one
+  coherent answer. That's the kind of connective, multi-document reasoning
+  that 32K can't hold (segment 2 fails there) but 128K handles cleanly — no
+  larger model required, still comfortably local.
+
+## What happens if you undersize the budget
+
+So what happens if you give the model a 32K-sized task like segment 1, but a
+128K-sized one like segment 2 — connecting two acts of law — while still
+budgeted at 32K? It's common to assume you just lose "the overflow": the tail
+end gets cut, everything else survives. That's not what happens in practice.
 
 Measured directly against this setup: **when a prompt exceeds Ollama's
 `num_ctx` budget, it doesn't keep as much as fits — it silently drops down to
@@ -24,8 +43,12 @@ roughly half the configured window**, no error, no warning. A prompt that's
 API's `prompt_eval_count` after the fact — which is exactly what this demo
 makes visible on screen, instead of just asserting it.
 
-The three segments below build on that one mechanism, using progressively
-more of it.
+This is exactly what bites in segment 2 at 32K below, and exactly why
+stepping up to 128K for that same task isn't optional polish — it's the
+difference between a confidently wrong answer and a correct one.
+
+The three segments below build on both of these: what each budget makes
+possible, and what happens when a task outgrows it.
 
 ## Prerequisites
 
@@ -71,6 +94,9 @@ residence permit entirely. The model has to find that fact, correctly ignore
 the unrelated asylum-law chapter sitting right next to it, and get the
 university-vs-UAS distinction right.
 
+This is the "32K is already useful" tier: one real document, read
+accurately, no synthesis across sources required.
+
 ```
 uv run ollama-law-demo 1 32k
 ```
@@ -93,6 +119,9 @@ padding. ~74.6K tokens total.
   member, that a private Oy has no statutory minimum share capital (only
   public companies do), and which of the recent company-law amendments
   actually apply (usually none, for a small private company).
+
+This is the "128K unlocks cross-source reasoning" tier: the same 9B model,
+just given enough room to hold both acts at once and connect them.
 
 ```
 uv run ollama-law-demo 2 32k
